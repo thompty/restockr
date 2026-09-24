@@ -1,8 +1,15 @@
-print("Restockr is Running!")
+from fastapi import FastAPI
 
-def get_app_name(app_type):
-    return "Restockr " + app_type
+app = FastAPI()
 
-app_name = get_app_name("Receipt Tracker")
+@app.get("/")
+def home():
+    return {"message": "Welcome to Restockr"}
 
-print(app_name)
+@app.get("/about")
+def about():
+    return {"description": "Restockr is a grocery purchase tracking application"}
+
+@app.get("/status")
+def status():
+    return {"status": "Restockr is Running"}
