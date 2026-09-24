@@ -10,3 +10,4 @@
 - Paperless-ngx integration
 - Nextcloud integration
 - Home Assistant integration
+- Average Cost Analysis
