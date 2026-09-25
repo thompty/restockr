@@ -17,15 +17,29 @@ def home(request: Request):
         name="home.html",
         #Data passed from Python into the HTML template
         context={
-            "app_name": "Restockr Development",
+            "app_name": "Restockr",
             "welcome_message": "Welcome to the Restockr Grocery Assistant"
         }
     )
 
 @app.get("/about")
-def about():
-    return {"description": "Restockr is a grocery purchase tracking application"}
+def about(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="about.html",
+        context={
+            "app_name": "Restockr",
+            "description": "This program is used for the user to input a scan of a reciept which is then converted to data in a database. "
+        }
+    )
 
 @app.get("/status")
-def status():
-    return {"status": "Restockr is Running"}
+def status(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="status.html",
+        context={
+            "app_name": "Restockr",
+            "app_running": "App is Running"
+        }
+    )
